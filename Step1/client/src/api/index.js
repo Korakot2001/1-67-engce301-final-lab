@@ -1,8 +1,11 @@
-export async function login({ email, password }) {
-  return await fetch("/api/auth/login", {
+export async function login({ email_text, password_text }) {
+  const token = '1234567890';
+  return await fetch("/api/user/login", {
     method: "POST",
-    body: JSON.stringify({ email, password }),
-    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ email_text, password_text }),
+    headers: { "Content-Type": "application/json",
+      'Authorization': `Bearer ${token}`
+     },
   })
     .then((response) => {
       // If request is not successful, display error message

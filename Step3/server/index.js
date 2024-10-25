@@ -214,7 +214,7 @@ const init = async () => {
         handler: async function (request, reply) {
 
             const {
-                username_text,
+                email_text,
                 password_text,
 
             } = request.payload;
@@ -223,7 +223,7 @@ const init = async () => {
 
             try {
 
-                const responsedata = await Users.UserRepo.getUserSearch(username_text, password_text);
+                const responsedata = await Users.UserRepo.getUserSearch(email_text, password_text);
                 if (responsedata.error) {
                     return responsedata;
                 } else {
